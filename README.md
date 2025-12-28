@@ -25,3 +25,19 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Version de angular y npm
+
+    @angular/animations: "^10.2.5
+    @angular/common: "~10.2.4
+    @angular/compiler: "~10.2.4
+    @angular/core: "~10.2.4
+    @angular/forms: "~10.2.4
+
+## Instalacion
+
+    npm install
+
+## Ejecución
+
+    ng serve
