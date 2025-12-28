@@ -1,0 +1,33 @@
+<h2>Carga masiva de campañas</h2>
+<input type="file" accept=".csv" (change)="onFileSelected($event)" />
+<button (click)="upload()" [disabled]="!file">Cargar CSV</button>
+
+<hr />
+
+<!-- Tabla de registros -->
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>Código Campaña</th>
+      <th>Acronimo</th>
+      <th>ruc</th>
+      <th>Empresa</th>
+      <th>Número Clientes</th>
+      <th>Fecha</th>
+      <th>Presupuesto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of campaigns">
+      <td>{{ c.codigoCampania }}</td>
+      <td>{{ c.acronimo }}</td>
+      <td>{{ c.ruc }}</td>
+      <td>{{ c.nombreEmpresa }}</td>
+      <td>{{ c.numeroClientes }}</td>
+      <td>{{ c.fecha }}</td>
+      <td>{{ c.presupuesto }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
