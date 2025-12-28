@@ -5,11 +5,20 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CsvLoaderService {
-  private apiUrl = 'http://localhost:8080/carga-archivos/api/campania/upload';
+  private apiUrl = 'http://localhost:8080/carga-archivos/api/campania';
 
   constructor(private http: HttpClient) { }
+
   uploadCsv(formData: FormData) {
-    return this.http.post(this.apiUrl, formData);
+    return this.http.post(this.apiUrl.concat('/upload'), formData);
+  }
+
+  findAll() {
+    return this.http.get(this.apiUrl);
+  }
+
+  grouped() {
+    return this.http.get(this.apiUrl.concat('/grouped'));
   }
 
 }

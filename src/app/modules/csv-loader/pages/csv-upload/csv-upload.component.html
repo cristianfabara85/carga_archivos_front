@@ -1,10 +1,9 @@
-<h2>Carga masiva de campañas</h2>
+<h2>Carga de archivos .csv</h2>
 <input type="file" accept=".csv" (change)="onFileSelected($event)" />
 <button (click)="upload()" [disabled]="!file">Cargar CSV</button>
 
 <hr />
 
-<!-- Tabla de registros -->
 <table border="1" width="100%">
   <thead>
     <tr>
@@ -24,10 +23,56 @@
       <td>{{ c.ruc }}</td>
       <td>{{ c.nombreEmpresa }}</td>
       <td>{{ c.numeroClientes }}</td>
-      <td>{{ c.fecha }}</td>
-      <td>{{ c.presupuesto }}</td>
+      <td>{{ c.fecha | date : "yyyy-MM-dd" }}</td>
+      <td>{{ c.presupuesto | currency }}</td>
     </tr>
   </tbody>
 </table>
 
+<h3>Total acumulado por archivo: {{ presupuestoAcumulado | number }}</h3>
 <hr />
+
+<h3>Campañas cargadas previamente</h3>
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>Id registro</th>
+      <th>Código Campaña</th>
+      <th>Acronimo</th>
+      <th>ruc</th>
+      <th>Empresa</th>
+      <th>Número Clientes</th>
+      <th>Fecha</th>
+      <th>Presupuesto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of campaniasCargadas">
+      <td>{{ c.id }}</td>
+      <td>{{ c.codigoCampania }}</td>
+      <td>{{ c.acronimo }}</td>
+      <td>{{ c.ruc }}</td>
+      <td>{{ c.nombreEmpresa }}</td>
+      <td>{{ c.numeroClientes }}</td>
+      <td>{{ c.fecha | date : "yyyy-MM-dd" }}</td>
+      <td>{{ c.presupuesto | currency }}</td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+
+<h3>Presupuesto Agrupado por empresa</h3>
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>Empresa</th>
+      <th>Presupuesto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of presupuestoAgrupado">
+      <td>{{ c.nombreEmpresa }}</td>
+      <td>{{ c.presupuestoAcumulado | currency }}</td>
+    </tr>
+  </tbody>
+</table>
