@@ -23,15 +23,7 @@ export class CsvUploadComponent implements OnInit {
   constructor(private csvService: CsvLoaderService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.csvService.findAll()
-      .subscribe((response: any) => {
-        this.campaniasCargadas = response;
-      });
-
-    this.csvService.grouped()
-      .subscribe((response: any) => {
-        this.presupuestoAgrupado = response;
-      });
+    this.refreshData();
   }
 
   onFileSelected(event: any) {
@@ -44,6 +36,7 @@ export class CsvUploadComponent implements OnInit {
 
     this.csvService.uploadCsv(formData)
       .subscribe((response: any) => {
+        this.refreshData();
         this.campaigns = response.campanias;
         if (response.error) {
           this.presupuestoAcumulado = response.totalPresupuesto;
@@ -52,7 +45,21 @@ export class CsvUploadComponent implements OnInit {
           this.presupuestoAcumulado = response.totalPresupuesto;
           this.toastr.success('Archivo cargado correctamente', 'Éxito')
         }
+
       });
   }
+
+  refreshData() {
+    this.csvService.findAll()
+      .subscribe((response: any) => {
+        this.campaniasCargadas = response;
+      });
+
+    this.csvService.grouped()
+      .subscribe((response: any) => {
+        this.presupuestoAgrupado = response;
+      });
+  }
+
 
 }
