@@ -12,8 +12,9 @@
 /package-lock.json
 /yarn.lock
 
-# Environment files
-/.env
+.env
+.env.*
+!/.env.example
 
 # Angular CLI and build artefacts
 /.angular-cli.json
@@ -26,3 +27,24 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+*.swp
+
+ Directorios y archivos de compilación
+/dist/
+/tmp/
+
+
+# Dependencias
+/node_modules/
+
+# Archivos de entorno locales
+
+
+# Archivos de IDE y sistema operativo
+.DS_Store
+.idea/
+.vscode/
+
+# Archivos de caché de Angular
+*.ngsw-cache
