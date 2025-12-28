@@ -32,36 +32,38 @@
 <h3>Total acumulado por archivo: {{ presupuestoAcumulado | number }}</h3>
 <hr />
 
-<h3>Campañas cargadas previamente</h3>
-<table border="1" width="100%">
-  <thead>
-    <tr>
-      <th>Id registro</th>
-      <th>Código Campaña</th>
-      <th>Acronimo</th>
-      <th>ruc</th>
-      <th>Empresa</th>
-      <th>Número Clientes</th>
-      <th>Fecha</th>
-      <th>Presupuesto</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let c of campaniasCargadas">
-      <td>{{ c.id }}</td>
-      <td>{{ c.codigoCampania }}</td>
-      <td>{{ c.acronimo }}</td>
-      <td>{{ c.ruc }}</td>
-      <td>{{ c.nombreEmpresa }}</td>
-      <td>{{ c.numeroClientes }}</td>
-      <td>{{ c.fecha | date : "yyyy-MM-dd" }}</td>
-      <td>{{ c.presupuesto | currency }}</td>
-    </tr>
-  </tbody>
-</table>
+<h2>Campañas cargadas previamente</h2>
+<div class="table-scroll">
+  <table border="1" width="100%">
+    <thead>
+      <tr>
+        <th>Id registro</th>
+        <th>Código Campaña</th>
+        <th>Acronimo</th>
+        <th>ruc</th>
+        <th>Empresa</th>
+        <th>Número Clientes</th>
+        <th>Fecha</th>
+        <th>Presupuesto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of campaniasCargadas">
+        <td>{{ c.id }}</td>
+        <td>{{ c.codigoCampania }}</td>
+        <td>{{ c.acronimo }}</td>
+        <td>{{ c.ruc }}</td>
+        <td>{{ c.nombreEmpresa }}</td>
+        <td>{{ c.numeroClientes }}</td>
+        <td>{{ c.fecha | date : "yyyy-MM-dd" }}</td>
+        <td>{{ c.presupuesto | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
 <hr />
-
-<h3>Presupuesto Agrupado por empresa</h3>
+<h2>Presupuesto Agrupado por empresa</h2>
 <table border="1" width="100%">
   <thead>
     <tr>
